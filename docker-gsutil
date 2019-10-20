@@ -1,0 +1,9 @@
+#!/bin/sh
+docker run -it --rm \
+  -v $HOME/.config/gcloud:$HOME/.config/gcloud \
+  -v $PWD:$PWD \
+  -e "HOME=$HOME" \
+  -w $PWD \
+  --entrypoint=gsutil \
+  google/cloud-sdk:alpine \
+  $*
